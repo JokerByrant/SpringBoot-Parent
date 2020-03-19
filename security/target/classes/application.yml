@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: security
+  thymeleaf:
+    cache: false
+    suffix: .html
+    prefix: classpath:/templates/
+
+
+
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://user:123456@localhost:7003/eureka/
+      defaultZone: http://localhost:7001/eureka/, http://localhost:7002/eureka/
