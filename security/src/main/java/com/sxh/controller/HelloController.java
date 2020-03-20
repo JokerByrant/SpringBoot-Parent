@@ -1,17 +1,19 @@
 package com.sxh.controller;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.sxh.message.ResponseMessage;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author 一池春水倾半城
  * @date 2019/9/6
  */
 @RestController
-@Slf4j
-public class HelloController {
+public class HelloController extends BaseController {
 
+    @GetMapping("/hello")
+    public ResponseMessage hello() {
+        String username = getCurrentUsername();
+        return new ResponseMessage("hello", username);
+    }
 }

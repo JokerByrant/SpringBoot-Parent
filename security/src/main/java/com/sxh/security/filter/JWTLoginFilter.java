@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
+ * 登录验证类，生成token放到header中
  * @author sxh
  * @date 2020/3/14
  */
@@ -39,7 +40,6 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
      */
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        logger.info("开始验证用户信息...");
         Authentication authentication = null;
         try {
             // 只支持json形式的请求
@@ -66,6 +66,6 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
                 .signWith(SignatureAlgorithm.HS512, "MyJwtSecret")
                 .compact();
         response.addHeader("Authorization", "Bearer " + token);
-
+        logger.info("登录成功！token生成成功！");
     }
 }
