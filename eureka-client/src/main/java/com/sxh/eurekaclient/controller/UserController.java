@@ -1,10 +1,13 @@
 package com.sxh.eurekaclient.controller;
 
 import com.sxh.eurekaclient.entity.User;
-import com.sxh.eurekaclient.pojo.Result;
+import com.sxh.message.ResponseMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author sxh
@@ -17,7 +20,7 @@ public class UserController {
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping("/{id}")
-    public Result<User> getUser(@PathVariable Integer id) {
+    public ResponseMessage getUser(@PathVariable Integer id) {
         User user = new User();
         user.setId(id);
         user.setUserName("张三");
@@ -25,6 +28,6 @@ public class UserController {
 
         logger.info("获取用户信息成功！");
 
-        return new Result<>(user);
+        return new ResponseMessage(user);
     }
 }

@@ -23,6 +23,7 @@
         <module>eureka-ribbon</module>
         <module>zuul1</module>
         <module>util</module>
+        <module>hystrix-service</module>
     </modules>
 
     <properties>

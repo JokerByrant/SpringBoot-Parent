@@ -1,0 +1,13 @@
+server:
+  port: 7401
+
+spring:
+  application:
+    name: hystrix-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/, http://localhost:7002/eureka/
+
+service-url:
+  eureka-client: http://eureka-client/

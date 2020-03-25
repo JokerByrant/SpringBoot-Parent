@@ -11,6 +11,11 @@
     <artifactId>eureka-client</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.sxh</groupId>
+            <artifactId>util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
