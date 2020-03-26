@@ -11,3 +11,14 @@ eureka:
 
 service-url:
   eureka-client: http://eureka-client/
+  
+hystrix:
+  command: #用于控制HystrixCommand的行为
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000 #配置HystrixCommand执行的超时时间，执行超过该时间会进行服务降级处理
+            interruptOnTimeout: true #配置HystrixCommand执行超时的时候是否要中断
+          timeout:
+            enabled: true #配置HystrixCommand的执行是否启用超时时间
