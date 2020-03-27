@@ -2,7 +2,6 @@ package com.sxh.hystrix.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.sxh.hystrix.annotation.EnableContentService;
 import com.sxh.message.ResponseMessage;
 import com.sxh.util.HttpUtil;
 import org.slf4j.Logger;
@@ -18,7 +17,6 @@ import org.springframework.web.client.RestTemplate;
  * @date 2020/3/25
  */
 @Service
-@EnableContentService
 public class UserService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
