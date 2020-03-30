@@ -22,3 +22,11 @@ hystrix:
             interruptOnTimeout: true #配置HystrixCommand执行超时的时候是否要中断
           timeout:
             enabled: true #配置HystrixCommand的执行是否启用超时时间
+
+management:
+  endpoints:
+    web:
+      exposure:
+        #暴露hystrix监控端点
+        include: 'hystrix.stream'
+      

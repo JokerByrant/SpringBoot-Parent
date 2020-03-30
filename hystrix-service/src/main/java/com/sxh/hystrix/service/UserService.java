@@ -40,6 +40,14 @@ public class UserService {
         return new ResponseMessage("数据获取成功！", object);
     }
 
+    @HystrixCommand(fallbackMethod = "fallbackMethod1", 
+                    commandKey = "testCommand",
+                    groupKey = "getUserGroup",
+                    threadPoolKey = "getUserThreadPool")
+    public ResponseMessage testCommand(Long id) {
+        return restTemplate.getForObject(api + "user/{1}", ResponseMessage.class, id);
+    }
+
     /**
      * 声明的参数需要包含controller声明的参数
      * @param id
@@ -48,7 +56,7 @@ public class UserService {
     public ResponseMessage fallbackMethod1(@PathVariable Long id) {
         ResponseMessage message = new ResponseMessage();
         message.setCode(500);
-        message.setMessage("调用失败！");
+        message.setMessage("调用失败！触发fallbackMethod1");
         message.setData(id);
         return message;
     }
@@ -56,7 +64,7 @@ public class UserService {
     public ResponseMessage fallbackMethod2() {
         ResponseMessage message = new ResponseMessage();
         message.setCode(500);
-        message.setMessage("调用失败！");
+        message.setMessage("调用失败！触发fallbackMethod2");
         return message;
     }
     

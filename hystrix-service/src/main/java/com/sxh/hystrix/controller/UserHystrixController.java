@@ -34,10 +34,16 @@ public class UserHystrixController {
         contentService.doSomething();
         return userService.getUser(id);
     }
-    
+
     @GetMapping("/testFallback1")
     @LogAnnotation(actionname = "testFallback1", module = "UserHystrixController.class", actiontype = "get")
     public ResponseMessage testFallback1() {
         return userService.getEpidemicData();
+    }
+
+    @GetMapping("/testCommand/{id}")
+    @LogAnnotation(actionname = "testCommand", module = "UserHystrixController.class", actiontype = "get")
+    public ResponseMessage testCommand(@PathVariable Long id) {
+        return userService.testCommand(id);
     }
 }
