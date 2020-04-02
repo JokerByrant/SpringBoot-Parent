@@ -42,6 +42,8 @@ public class User {
         this.password = password;
     }
 
+    
+    // @TODO: 此处注入未生效，找出原因
     @Autowired
     public void setUserService(IUserService userService) {
         userService.out();
