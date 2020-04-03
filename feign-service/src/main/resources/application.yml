@@ -1,0 +1,25 @@
+server:
+  port: 7701
+
+spring:
+  application:
+    name: feign-service
+    
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://localhost:7001/eureka/
+      
+#在Feign中开启Hystrix
+feign:
+  hystrix:
+    enabled: true
+
+#配置com.sxh.feign.client包下的Feign客户端日志级别为debug
+logging:
+  level:
+    com.sxh.feign.client: debug
+
+service-url:
+  eureka-client: eureka-client
+ 
