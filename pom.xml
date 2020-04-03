@@ -26,6 +26,7 @@
         <module>hystrix-service</module>
         <module>hystrix-dashboard</module>
         <module>feign-service</module>
+        <module>config-center</module>
     </modules>
 
     <properties>
@@ -64,6 +65,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!--获取配置中心文件-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
     </dependencies>
 
