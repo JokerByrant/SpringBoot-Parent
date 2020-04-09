@@ -4,15 +4,36 @@ server:
 spring:
   application:
     name: config-center
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          searchLocations: classpath:/config
+#  profiles:
+#    active: native
   cloud:
     config:
       server:
-        native:
-          searchLocations: classpath:/config
-  profiles:
-    active: native
+        git:
+          uri: https://github.com/JokerByrant/springcloud-config.git
+          username: sxhjoker@163.com
+          password: water5820
+          # 开启启动时直接从git获取配置
+          clone-on-start: true
+  rabbitmq: # rabbitmq相关配置(以下配置皆为默认配置，即使不手动配置默认也会加载下面的配置)
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka/
+      
+# 暴露消息总线刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

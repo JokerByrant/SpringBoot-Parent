@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import javax.annotation.PostConstruct;
  * @author sxh
  * @date 2020/3/13
  */
+@RefreshScope
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -25,12 +27,12 @@ public class UserController {
     private Logger logger = LoggerFactory.getLogger(UserController.class);
     
     // static类型的元素不能直接使用autowired注入，因为类加载器加载静态变量时，Spring上下文尚未加载
-    private static IUserService userService;
+//    private static IUserService userService;
     
     @Autowired
     private IUserService autowiredUserService;
     
-    @Value("${test-config}")
+//    @Value("${test-config}")
     private String testConfig;
     
     @GetMapping("/{id}")
@@ -40,7 +42,7 @@ public class UserController {
         user.setUserName("张三");
         user.setPassword("123456");
 
-        test();
+//        test();
 //        user.getUserService().out();
 
         logger.info("获取用户信息成功！");
@@ -51,15 +53,15 @@ public class UserController {
     
     private static void test() {
         System.out.println("===============start test================");
-        userService.out();
+//        userService.out();
     }
 
     // 1.构造器方式注入static元素
-    @Autowired
-    private UserController(IUserService userService) {
-        logger.error("注入userService");
-        UserController.userService = userService;
-    }
+//    @Autowired
+//    private UserController(IUserService userService) {
+//        logger.error("注入userService");
+//        UserController.userService = userService;
+//    }
 
     // 2. setter方式注入static元素
 //    @Autowired

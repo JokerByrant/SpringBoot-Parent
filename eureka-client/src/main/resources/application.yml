@@ -1,0 +1,8 @@
+spring:
+  # Zipkin是Twitter的一个开源项目，可以用来获取和分析Spring Cloud Sleuth 中产生的请求链路跟踪日志，它能直观地展示请求链路跟踪信息。 
+  zipkin:
+    base-url: http://localhost:9411
+  #设置Sleuth的抽样收集概率
+  sleuth:
+    sampler:
+      probability: 0.1

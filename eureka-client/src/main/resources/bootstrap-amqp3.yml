@@ -1,0 +1,27 @@
+server:
+  port: 7075
+
+spring:
+  application:
+    name: eureka-client
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-center
+      profile: dev
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    port: 5672
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh'
+eureka:
+  client:
+    service-url: 
+      deafultZone: http://localhost:7001/eureka/
