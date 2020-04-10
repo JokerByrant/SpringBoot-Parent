@@ -11,7 +11,7 @@ eureka:
 
 service-url:
   eureka-client: http://eureka-client/
-  
+
 hystrix:
   command: #用于控制HystrixCommand的行为
     default:

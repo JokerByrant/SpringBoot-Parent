@@ -7,13 +7,15 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * Http工具类
+ *
  * @author sxh
  * @date 2020/2/19
  */
 public class HttpUtil {
     private static final Logger log = LoggerFactory.getLogger(HttpUtil.class);
 
-    private HttpUtil() {}
+    private HttpUtil() {
+    }
 
     private static class SingletonRestTemplate {
         /**
@@ -28,6 +30,7 @@ public class HttpUtil {
 
     /**
      * get方式获取数据
+     *
      * @param url
      * @return
      */
@@ -37,6 +40,7 @@ public class HttpUtil {
 
     /**
      * post方式获取数据
+     *
      * @param url
      * @param data
      * @return

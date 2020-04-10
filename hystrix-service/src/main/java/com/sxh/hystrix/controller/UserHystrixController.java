@@ -21,10 +21,10 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/user")
 public class UserHystrixController {
-    
+
     @Autowired
     private UserService userService;
-    
+
     @Resource
     private ContentService contentService;
 

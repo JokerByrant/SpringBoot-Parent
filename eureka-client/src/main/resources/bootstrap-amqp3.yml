@@ -23,5 +23,5 @@ management:
         include: 'refresh'
 eureka:
   client:
-    service-url: 
+    service-url:
       deafultZone: http://localhost:7001/eureka/

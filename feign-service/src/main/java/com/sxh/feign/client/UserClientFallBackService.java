@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class UserClientFallBackService implements UserClient {
-    
+
     @Override
     public ResponseMessage getUser(Integer id) {
         return new ResponseMessage("调用失败，服务被降级！");

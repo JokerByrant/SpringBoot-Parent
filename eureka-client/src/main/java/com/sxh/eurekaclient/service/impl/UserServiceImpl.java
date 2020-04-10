@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements IUserService {
     private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-    
+
     private TestWiredService testWiredService;
-    
+
     @Override
     public void out() {
         System.out.println("hello world!");

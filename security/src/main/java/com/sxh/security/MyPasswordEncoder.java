@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 重写密码解析类
+ *
  * @author sxh
  * @date 2020/3/18
  */
@@ -17,7 +18,8 @@ public class MyPasswordEncoder implements PasswordEncoder {
 
     /**
      * 验证输入的密码是否匹配
-     * @param charSequence 正确的密码
+     *
+     * @param charSequence    正确的密码
      * @param encodedPassword 用户输入的密码
      * @return
      */

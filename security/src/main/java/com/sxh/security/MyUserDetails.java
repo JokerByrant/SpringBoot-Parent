@@ -8,6 +8,7 @@ import java.util.Collection;
 
 /**
  * 自定义UserDetails
+ *
  * @author sxh
  * @date 2020/3/14
  */

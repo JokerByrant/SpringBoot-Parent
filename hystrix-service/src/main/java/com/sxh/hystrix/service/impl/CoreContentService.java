@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 public class CoreContentService implements ContentService {
     private Logger logger = LoggerFactory.getLogger(CoreContentService.class);
-    
+
     @Override
     public void doSomething() {
         logger.info("do some core import things");

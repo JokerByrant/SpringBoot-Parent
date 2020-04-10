@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>hystrix-dashboard</artifactId>
-    
+
     <dependencies>
         <!--hystrix仪表盘-->
         <dependency>

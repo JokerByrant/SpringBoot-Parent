@@ -4,13 +4,13 @@ server:
 spring:
   application:
     name: config-center
-#  cloud:
-#    config:
-#      server:
-#        native:
-#          searchLocations: classpath:/config
-#  profiles:
-#    active: native
+  #  cloud:
+  #    config:
+  #      server:
+  #        native:
+  #          searchLocations: classpath:/config
+  #  profiles:
+  #    active: native
   cloud:
     config:
       server:
@@ -18,9 +18,9 @@ spring:
           uri: https://github.com/JokerByrant/springcloud-config.git
           username: sxhjoker@163.com
           password: water5820
-          # ¿ªÆôÆô¶¯Ê±Ö±½Ó´Ógit»ñÈ¡ÅäÖÃ
+          # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Ö±ï¿½Ó´ï¿½gitï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
           clone-on-start: true
-  rabbitmq: # rabbitmqÏà¹ØÅäÖÃ(ÒÔÏÂÅäÖÃ½ÔÎªÄ¬ÈÏÅäÖÃ£¬¼´Ê¹²»ÊÖ¶¯ÅäÖÃÄ¬ÈÏÒ²»á¼ÓÔØÏÂÃæµÄÅäÖÃ)
+  rabbitmq: # rabbitmqï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ÎªÄ¬ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
     host: localhost
     port: 5672
     username: guest
@@ -30,8 +30,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka/
-      
-# ±©Â¶ÏûÏ¢×ÜÏßË¢ĞÂÅäÖÃµÄ¶Ëµã
+
+# ï¿½ï¿½Â¶ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ë¢ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ¶Ëµï¿½
 management:
   endpoints:
     web:

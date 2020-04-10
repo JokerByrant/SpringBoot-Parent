@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @FeignClient(value = "${service-url.eureka-client}", fallback = UserClientFallBackService.class)
 public interface UserClient {
-    
+
     @GetMapping("/user/{id}")
     ResponseMessage getUser(@PathVariable Integer id);
 }

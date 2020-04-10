@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 日志切面
+ *
  * @author sxh
  * @date 2020/3/26
  */
@@ -19,15 +20,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogAopAction {
     private Logger logger = LoggerFactory.getLogger(LogAopAction.class);
-    
+
     @Pointcut("execution(public * com.sxh.hystrix.controller..*(..))")
-    private void pointCutMethod(){}
-    
+    private void pointCutMethod() {
+    }
+
     @After("pointCutMethod()") // 使用上面定义的切点
     public void recordLog(JoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         LogAnnotation logAnnotation = signature.getMethod().getAnnotation(LogAnnotation.class);
-        
+
         if (logAnnotation != null) {
             logger.info("请求方法：" + logAnnotation.actionname());
             logger.info("所属模块：" + logAnnotation.module());

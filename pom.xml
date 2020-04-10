@@ -27,6 +27,8 @@
         <module>hystrix-dashboard</module>
         <module>feign-service</module>
         <module>config-center</module>
+        <module>consul-client</module>
+        <module>consul-ribbon</module>
     </modules>
 
     <properties>

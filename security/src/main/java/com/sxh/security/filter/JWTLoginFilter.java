@@ -23,6 +23,7 @@ import java.util.Date;
 
 /**
  * 登录验证类，生成token放到header中
+ *
  * @author sxh
  * @date 2020/3/14
  */
@@ -45,7 +46,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
             // 只支持json形式的请求
             MyUserDetails myUserDetails = new ObjectMapper().readValue(request.getInputStream(), MyUserDetails.class);
             // 进入MyUserDetailsService，验证用户名密码
-            authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(myUserDetails.getUsername(),myUserDetails.getPassword(),new ArrayList<>()));
+            authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(myUserDetails.getUsername(), myUserDetails.getPassword(), new ArrayList<>()));
         } catch (IOException e) {
             throw new RuntimeException("登录失败！");
         }

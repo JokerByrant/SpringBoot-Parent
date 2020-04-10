@@ -22,12 +22,12 @@ public class UserService {
 
     @Autowired
     private RestTemplate restTemplate;
-    
+
     @Value("${service-url.eureka-client}")
     private String api;
-    
+
     private static final String epidemic_url = "https://lab.isaaclin.cn/nCoV/api/area";
-    
+
     // Hystrix使用了命令模式，@HystrixCommand注解等于是指定了需要执行的命令
     @HystrixCommand(fallbackMethod = "fallbackMethod1")
     public ResponseMessage getUser(Long id) {
@@ -40,16 +40,17 @@ public class UserService {
         return new ResponseMessage("数据获取成功！", object);
     }
 
-    @HystrixCommand(fallbackMethod = "fallbackMethod1", 
-                    commandKey = "testCommand",
-                    groupKey = "getUserGroup",
-                    threadPoolKey = "getUserThreadPool")
+    @HystrixCommand(fallbackMethod = "fallbackMethod1",
+            commandKey = "testCommand",
+            groupKey = "getUserGroup",
+            threadPoolKey = "getUserThreadPool")
     public ResponseMessage testCommand(Long id) {
         return restTemplate.getForObject(api + "user/{1}", ResponseMessage.class, id);
     }
 
     /**
      * 声明的参数需要包含controller声明的参数
+     *
      * @param id
      * @return
      */
@@ -67,7 +68,6 @@ public class UserService {
         message.setMessage("调用失败！触发fallbackMethod2");
         return message;
     }
-    
-    
-    
+
+
 }

@@ -25,16 +25,16 @@ import javax.annotation.PostConstruct;
 public class UserController {
 
     private Logger logger = LoggerFactory.getLogger(UserController.class);
-    
+
     // static类型的元素不能直接使用autowired注入，因为类加载器加载静态变量时，Spring上下文尚未加载
 //    private static IUserService userService;
-    
+
     @Autowired
     private IUserService autowiredUserService;
-    
-//    @Value("${test-config}")
+
+    //    @Value("${test-config}")
     private String testConfig;
-    
+
     @GetMapping("/{id}")
     public ResponseMessage getUser(@PathVariable Integer id) {
         User user = new User();
@@ -50,7 +50,7 @@ public class UserController {
 
         return new ResponseMessage(user);
     }
-    
+
     private static void test() {
         System.out.println("===============start test================");
 //        userService.out();
@@ -69,7 +69,7 @@ public class UserController {
 //        logger.error("注入userService");
 //        UserController.userService = userService;
 //    }
-    
+
     // 3.通过注入非static元素和@PostConstruct注解结合方式注入static元素。@PostConstruct==>在构造器初始化后调用
 //    @PostConstruct 
 //    private void beforeInit() {

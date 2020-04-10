@@ -10,19 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @date 2020/3/13
  */
 public class User {
-    
+
     Logger logger = LoggerFactory.getLogger(User.class);
-    
+
     {
         logger.info("测试类加载时机！");
     }
-    
+
     private int id;
 
     private String userName;
 
     private String password;
-    
+
     private IUserService userService;
 
     public int getId() {
@@ -49,14 +49,14 @@ public class User {
         this.password = password;
     }
 
-    
+
     // 此处注入不会生效，因为在类加载阶段User.class尚未加载
     @Autowired
     public void setUserService(IUserService userService) {
         logger.info("此处注入不会生效，因为User.class在类加载阶段并未加载");
         this.userService = userService;
     }
-    
+
     public IUserService getUserService() {
         return this.userService;
     }

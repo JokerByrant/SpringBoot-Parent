@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private UserClient userClient;
-    
+
     @GetMapping("/{id}")
     public ResponseMessage getUser(@PathVariable Integer id) {
         return userClient.getUser(id);

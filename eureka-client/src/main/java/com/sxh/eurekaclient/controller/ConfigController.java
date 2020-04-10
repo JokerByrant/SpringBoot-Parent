@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 @RestController
 public class ConfigController {
-//    @Value("${test-config}")
+    //    @Value("${test-config}")
     private String testConfig;
 
     @GetMapping("/testConfig")

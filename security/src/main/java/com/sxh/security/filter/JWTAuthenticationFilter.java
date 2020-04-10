@@ -17,6 +17,7 @@ import java.util.ArrayList;
  * 是否登录验证类(token的校验)
  * 该类继承自BasicAuthenticationFilter，在doFilterInternal方法中，
  * 从http头的Authorization 项读取token数据，然后用Jwts包提供的方法校验token的合法性。
+ *
  * @author sxh
  * @date 2020/3/18
  */

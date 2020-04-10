@@ -14,6 +14,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     /**
      * 添加视图控制器，也可以在Controller中通过接口的方式指定
+     *
      * @param registry
      */
     @Override
