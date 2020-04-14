@@ -1,0 +1,53 @@
+server:
+  port: 7201
+
+service-url:
+  user-service: http://localhost:7071
+  user-service2: http://localhost:7072
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+  cloud:
+    gateway:
+      routes:
+#        - id: path_route # 匹配指定的请求
+#          uri: ${service-url.user-service}/user/{id} # 转发的地址
+#          predicates: # 断言，对路径匹配的请求进行路由
+#            - Path=/user/{id}
+#        - id: method_route # 匹配指定类型的请求
+#          uri: ${service-url.user-service}
+#          predicates:
+#            - Method=GET
+#        - id: query_route # 发出的请求带有指定的参数则匹配该路由
+#          uri: ${service-url.user-service}
+#          predicates:
+#            - Query=username
+#        - id: remoteaddr_route # 从指定远程地址发起的请求可以匹配该路由
+#          uri: ${service-url.user-service}
+#          predicates:
+#            - RemoteAddr=192.168.0.109
+        
+#        - id: weight_high # 80%的请求被路由到user-service
+#          uri: ${service-url.user-service}
+#          predicates:
+#            - Weight=group1, 8
+#        - id: weight_low # 20%的请求被路由到user-service2
+#          uri: ${service-url.user-service2}
+#          predicates:
+#            - Weight=group1, 2
+
+        - id: requestratelimiter_route
+          uri: ${service-url.user-service}
+          filters:
+            - name: RequestRateLimiter
+              args:
+                # 每秒允许处理的请求数量
+                redis-rate-limiter.replenishRate: 1
+                # 每秒最大处理的请求数量
+                redis-rate-limiter.burstCapacity: 2
+                # 限流策略，对应策略的Bean
+                key-resolver: "#{@ipKeyResolver}"
+          predicates:
+            - Method=GET

@@ -25,6 +25,7 @@
         <module>config-center</module>
         <module>consul-client</module>
         <module>consul-ribbon</module>
+        <module>gateway</module>
     </modules>
     
     <dependencies>
