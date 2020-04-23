@@ -6,3 +6,9 @@ spring:
   sleuth:
     sampler:
       probability: 0.1
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

@@ -11,10 +11,20 @@
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
-<form th:action="@{/login}" method="post">
+<form th:action="@{/login}" role="form" method="post">
     <div><label> User Name : <input type="text" name="username"/> </label></div>
     <div><label> Password: <input type="password" name="password"/> </label></div>
     <div><input type="submit" value="Sign In"/></div>
 </form>
+
+<script th:inline="javascript">
+    var error = [[${error}]];
+    if(error){
+        var msg = [[${session?.SPRING_SECURITY_LAST_EXCEPTION?.message}]]
+        if(error!=null){
+            alert("温馨提示：" + msg);
+        }
+    }
+</script>
 </body>
 </html>

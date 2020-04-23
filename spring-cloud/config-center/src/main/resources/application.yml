@@ -4,22 +4,22 @@ server:
 spring:
   application:
     name: config-center
-  #  cloud:
-  #    config:
-  #      server:
-  #        native:
-  #          searchLocations: classpath:/config
-  #  profiles:
-  #    active: native
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/JokerByrant/springcloud-config.git
-          username: sxhjoker@163.com
-          password: water5820
-          # ��������ʱֱ�Ӵ�git��ȡ����
-          clone-on-start: true
+        native:
+          searchLocations: classpath:/config
+  profiles:
+    active: native
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/JokerByrant/springcloud-config.git
+#          username: sxhjoker@163.com
+#          password: water5820
+#          # ��������ʱֱ�Ӵ�git��ȡ����
+#          clone-on-start: true
   rabbitmq: # rabbitmq�������(�������ý�ΪĬ�����ã���ʹ���ֶ�����Ĭ��Ҳ��������������)
     host: localhost
     port: 5672

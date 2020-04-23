@@ -1,0 +1,25 @@
+server:
+  port: 7306
+
+spring:
+  application:
+    name: admin-client
+
+# 开启服务监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+      
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+
+# 添加开启admin的日志监控
+logging:
+  file: admin-client.log

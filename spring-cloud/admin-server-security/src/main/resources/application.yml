@@ -1,0 +1,40 @@
+server:
+  port: 7303
+
+spring:
+  application:
+    name: admin-server
+  # spring boot 邮件配置
+  mail:
+    host: smtp.qq.com
+    username: xxx@qq.com
+    password: covacycpcsphbcde # 授权码
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  boot:
+    admin:
+      discovery:
+        # 不显示admin-security-server的监控信息
+        ignored-services: ${spring.application.name}
+      # SBA邮件配置
+      notify:
+        mail:
+          from: xxx@qq.com
+          to: xxx@163.com
+  security:
+    user:
+      name: admin
+      password: 123456
+  
+    
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+      

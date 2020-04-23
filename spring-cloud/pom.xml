@@ -26,6 +26,9 @@
         <module>consul-client</module>
         <module>consul-ribbon</module>
         <module>gateway</module>
+        <module>admin-server1</module>
+        <module>admin-client1</module>
+        <module>admin-server-security</module>
     </modules>
     
     <dependencies>
