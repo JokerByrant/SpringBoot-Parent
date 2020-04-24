@@ -9,6 +9,7 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 /**
  * 增加Spring Security配置，使得查看admin-server服务前需要登录
+ * 官方guide: https://codecentric.github.io/spring-boot-admin/current/
  * @author sxh
  * @date 2020/4/23
  */
