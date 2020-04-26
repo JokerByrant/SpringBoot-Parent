@@ -1,6 +1,5 @@
 package com.sxh.server.im.handler;
 
-import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -13,7 +12,7 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter { // 继�
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg){
         // 丢弃收到的数据
-        ((ByteBuf)msg).release();
+        System.out.println(msg.toString());
     }
 
     @Override
