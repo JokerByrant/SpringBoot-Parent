@@ -1,6 +1,8 @@
 package com.sxh.client.im;
 
-import com.sxh.client.im.handler.SubscribeResponseHandler;
+import com.sxh.client.im.handler.chatRoom.ClientMsgHandler;
+import com.sxh.client.im.handler.chatRoom.MessageDecoder;
+import com.sxh.client.im.handler.chatRoom.MessageEncoder;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
@@ -46,7 +48,14 @@ public class NettyClient {
                 protected void initChannel(SocketChannel ch) throws Exception {
                     ChannelPipeline pipeline = ch.pipeline();
                     
-                    pipeline.addLast("SubscribeResponseHandler", new SubscribeResponseHandler());
+//                    pipeline.addLast("SubscribeResponseHandler", new SubscribeResponseHandler());
+//                    pipeline.addLast("TimerClientHandler", new TimerClientHandler());
+                    // 消息编码
+                    pipeline.addLast("MessageEncoder", new MessageEncoder());
+                    // 消息解码
+                    pipeline.addLast("MessageDecoder", new MessageDecoder());
+                    // 消息处理
+                    pipeline.addLast("ClientMsgHandler", new ClientMsgHandler());
                 }
             });
 

@@ -15,6 +15,7 @@
     <modules>
         <module>netty-server</module>
         <module>netty-client</module>
+        <module>netty-util</module>
     </modules>
     
     <dependencies>

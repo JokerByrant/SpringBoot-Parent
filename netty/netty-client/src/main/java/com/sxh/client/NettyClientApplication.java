@@ -41,8 +41,6 @@ public class NettyClientApplication implements CommandLineRunner {
             } else { 
                 logger.info("连接IM服务器成功！");
                 logger.info("" + f.channel().remoteAddress() + f.channel().localAddress());
-                
-                f.channel().writeAndFlush("1122334455");
             }
         }; 
         

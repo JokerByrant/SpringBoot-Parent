@@ -1,6 +1,8 @@
 package com.sxh.server.im;
 
-import com.sxh.server.im.handler.DiscardServerHandler;
+import com.sxh.server.im.handler.chatRoom.MessageDecoder;
+import com.sxh.server.im.handler.chatRoom.MessageEncoder;
+import com.sxh.server.im.handler.chatRoom.ServerMsgHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
@@ -58,8 +60,15 @@ public class NettyServer {
                 protected void initChannel(SocketChannel socketChannel) throws Exception {
     
                     ChannelPipeline pipeline = socketChannel.pipeline();
-                    // 添加抛弃处理器
-                    pipeline.addLast("discardHandler", new DiscardServerHandler());
+                    
+//                    pipeline.addLast("MsgProcessHandler", new MsgProcessHandler());
+//                    pipeline.addLast("TimerServerHandler", new TimerServerHandler());
+                    // 消息编码
+                    pipeline.addLast("MessageEncoder", new MessageEncoder());
+                    // 消息解码
+                    pipeline.addLast("MessageDecoder", new MessageDecoder());
+                    // 消息处理
+                    pipeline.addLast("ServerMsgHandler", new ServerMsgHandler());
                 }
             });
 
