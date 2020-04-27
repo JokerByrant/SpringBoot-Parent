@@ -1,5 +1,6 @@
 package com.sxh.controller;
 
+import com.sxh.security.MyUserDetails;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
@@ -14,7 +15,8 @@ public class BaseController {
         String username = "";
         if (SecurityContextHolder.getContext() != null && SecurityContextHolder.getContext().getAuthentication() != null) {
             Object o = SecurityContextHolder.getContext().getAuthentication();
-            username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            username = userDetails.getUsername();
         }
         return username;
     }

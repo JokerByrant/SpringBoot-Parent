@@ -25,7 +25,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .formLogin().loginPage("/login").successForwardUrl("/")
+                .formLogin()
+                // .loginProcessingUrl("/login") // 这里的会跳转至Spring Security默认的页面
+                .loginPage("/login") // 这里会跳转至自己配置的login接口
+                // .successForwardUrl("/hello") // successForwardUrl并不是只支持post请求，它的请求类型跟随login的请求类型，相当于请求地址从login转到/hello，类型不变
+                .defaultSuccessUrl("/hello") // defaultSuccessUrl相当于构建了一个successHandler，将请求重定向至/hello接口
                 .failureUrl("/login?error=true").permitAll()
                 .and()
                 .cors().and().csrf().disable()
@@ -42,6 +46,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        // 配置自己的userDetailsService和passwordEncoder
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+
+        // 通过下面这种方式配置与上面效果一样
+//        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+//        authenticationProvider.setUserDetailsService(userDetailsService);
+//        authenticationProvider.setPasswordEncoder(passwordEncoder);
+//        auth.authenticationProvider(authenticationProvider);
     }
 }
