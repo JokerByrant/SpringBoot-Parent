@@ -1,6 +1,0 @@
-com\sxh\filter\SuccessAuthenticationFilter.class
-com\sxh\filter\FailAuthenticationFilter.class
-com\sxh\controller\HelloController.class
-com\sxh\security\WebSecurityConfig.class
-com\sxh\SecurityApplication.class
-com\sxh\config\WebMvcConfig.class
