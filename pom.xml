@@ -19,7 +19,7 @@
         <module>util</module>
         <module>spring-cloud</module>
         <module>spring-security</module>
-        <module>spring-boot</module>
+        <module>spring-boot</module>    
         <module>netty</module>
     </modules>
 
