@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 // .loginProcessingUrl("/login") // 这里的会跳转至Spring Security默认的页面
                 .loginPage("/login") // 这里会跳转至自己配置的login接口
-                // .successForwardUrl("/hello") // successForwardUrl并不是只支持post请求，它的请求类型跟随login的请求类型，相当于请求地址从login转到/hello，类型不变
+//                 .successForwardUrl("/hello") // successForwardUrl并不是只支持post请求，它的请求类型跟随login的请求类型，相当于请求地址从login转到/hello，类型不变
                 .defaultSuccessUrl("/hello") // defaultSuccessUrl相当于构建了一个successHandler，将请求重定向至/hello接口
                 .failureUrl("/login?error=true").permitAll()
                 .and()

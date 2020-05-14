@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    druid:
+      initialSize: 10 # 初始化时建立物理连接的个数
+      minIdle: 10 # 最小连接池数量
+      maxActive: 30 # 最大连接池数量
+      maxWait: 60000 # 获取连接最大等待时间
+      minEvictableIdleTimeMillis: 300000 # 配置一个连接在池中的最大生存时间
+      timeBetweenEvictionRunsMillis: 60000 # 配置检测可以关闭的空闲连接间隔时间
+      validationQuery: SELECT 1 FROM DUAL  # 用来检测连接是否有效的sql，要求是一个查询语句。如果validationQuery为null，testOnBorrow、testOnReturn、testWhileIdle都不会其作用。
+      testWhileIdle: true # 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+      testOnBorrow: false # 申请连接时执行validationQuery检测连接是否有效，添加会降低性能
+      testOnReturn: false # 归还连接时执行validationQuery检测连接是否有效，添加会降低性能
+      poolPreparedStatements: false # 是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql下建议关闭。(缺省值：false)
+      maxPoolPreparedStatementPerConnectionSize: 20 # 每个连接最多缓存多少个SQL
+      filters: stat,wall,log4j # 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter->stat，日志用的filter->log4j，防御sql注入的filter->wall
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000 # 连接属性，设置一些连接池统计方面的配置。这边开启了mergeSql和慢SQL记录，具体参考->https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter
+      useGlobalDataSourceStat: true # 合并多个DruidDataSource的监控数据
+      primary: # 主库
+        url: jdbc:mysql://localhost:3306/primary?useUnicode: true&characterEncoding: utf-8&useSSL: true&serverTimezone: GMT%2B8&allowMultiQueries: true
+        username: root
+        password: 123456
+      test: #分库
+        url: jdbc:mysql://localhost:3306/test?useUnicode: true&characterEncoding: utf-8&useSSL: true&serverTimezone: GMT%2B8&allowMultiQueries: true
+        username: root
+        password: 123456
