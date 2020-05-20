@@ -1,0 +1,7 @@
+# Application Context Initializers
+org.springframework.context.ApplicationContextInitializer=\
+com.sxh.initializer.MySimpleApplicationContextInitializer
+
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+com.sxh.listeners.MySpringApplicationRunListener

@@ -19,6 +19,7 @@
         <module>configuration-processor</module>
         <module>logback</module>
         <module>db-config</module>
+        <module>my-spring-boot</module>
     </modules>
 
     <dependencies>
