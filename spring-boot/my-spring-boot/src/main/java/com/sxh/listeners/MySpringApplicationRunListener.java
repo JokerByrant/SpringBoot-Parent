@@ -1,5 +1,6 @@
 package com.sxh.listeners;
 
+import com.sxh.event.MySimpleEvent;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.boot.context.event.ApplicationStartingEvent;
 import org.springframework.context.ApplicationEvent;
@@ -17,6 +18,8 @@ public class MySpringApplicationRunListener implements ApplicationListener<Appli
             System.out.println("====== Application is starting！This is a Message from Custom Listener！ =====");
         } else if (event instanceof ApplicationStartedEvent) {
             System.out.println("====== Application started success！This is a Message from Custom Listener！ =====");
+        } else if (event instanceof MySimpleEvent) { // 自定义事件
+            System.out.println("====== This is a Message from MySimpleEvent!! ====");
         }
     }
 }

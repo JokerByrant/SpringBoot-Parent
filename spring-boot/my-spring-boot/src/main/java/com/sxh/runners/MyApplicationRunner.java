@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @author sxh
  * @date 2020/5/20
  */
-@Component
+@Component // 与CommandLineRunner一样的解释
 public class MyApplicationRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
