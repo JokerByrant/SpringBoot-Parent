@@ -20,6 +20,18 @@ public class MySpringApplicationRunListener implements ApplicationListener<Appli
             System.out.println("====== Application started success！This is a Message from Custom Listener！ =====");
         } else if (event instanceof MySimpleEvent) { // 自定义事件
             System.out.println("====== This is a Message from MySimpleEvent!! ====");
+            
+            MyFunctionTest myFunctionTest = this::test;
+            myFunctionTest.test();
         }
+    }
+    
+    @FunctionalInterface // 该注解用于提醒编译器去检查该接口是否只包含一个抽象方法
+    private interface MyFunctionTest{
+        void test();
+    }
+    
+    private void test() {
+        System.out.println("Hello World!");
     }
 }
