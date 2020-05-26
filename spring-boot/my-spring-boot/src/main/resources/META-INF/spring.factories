@@ -5,3 +5,6 @@ com.sxh.initializer.MySimpleApplicationContextInitializer
 # Application Listeners
 org.springframework.context.ApplicationListener=\
 com.sxh.listeners.MySpringApplicationRunListener
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.sxh.autoconfiguration.MyAutoConfiguration
