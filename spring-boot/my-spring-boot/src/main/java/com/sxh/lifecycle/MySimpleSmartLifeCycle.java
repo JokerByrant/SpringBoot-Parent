@@ -45,11 +45,19 @@ public class MySimpleSmartLifeCycle implements SmartLifecycle {
         isRunning = false;
     }
 
+    /**
+     * 1. 只有该方法返回false时，start方法才会被执行。
+     * 2. 只有该方法返回true时，stop(Runnable callback)或stop()方法才会被执行。
+     */
     @Override
     public boolean isRunning() {
         return isRunning;
     }
 
+    /**
+     * 排序标识，如果程序中有多个SmartLifecycle的类，执行顺序就根据这个标识进行确定
+     * @return
+     */
     @Override
     public int getPhase() {
         return 0;
