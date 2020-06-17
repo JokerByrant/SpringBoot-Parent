@@ -21,6 +21,7 @@
         <module>spring-security</module>
         <module>spring-boot</module>    
         <module>netty</module>
+        <module>rabbitMQ</module>
     </modules>
 
     <properties>
