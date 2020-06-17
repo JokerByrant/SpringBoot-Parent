@@ -35,6 +35,7 @@ public class Recv {
         String severity  = LOG_LEVEL_ARR[rand];
         // 将交换机和临时队列绑定到通道上，并制定路由键名
         // queue->队列名，logs->交换机名，""->路由键名
+        // 绑定了路由键 severity 之后，当前队列只会接收 [设置了指定路由键的发送者] 发出的消息
         channel.queueBind(queue, EXCHANGE_NAME, severity);
         
         // 创建队列消费者
