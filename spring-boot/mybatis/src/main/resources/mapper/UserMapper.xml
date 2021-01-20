@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxh.dao.UserMapper" >
+    <select id="selectAll" resultMap="UserResultMap">
+        select * from user;
+    </select>
+    <select id="selectRemarkByIdFromMale" parameterType="java.lang.String" resultType="java.lang.String">
+        select remark from male
+        where user_id = #{userId}
+    </select>
+    <select id="selectRemarkByIdFromFemale" resultType="java.lang.String">
+        select remark from female
+        where user_id = #{userId}
+    </select>
+    <resultMap id="UserResultMap" type="com.sxh.entity.User">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+        <discriminator column="sex" javaType="com.sxh.entity.User">
+            <case value="男" resultType="java.util.Map">
+                <association property="remark" column="id" select="selectRemarkByIdFromMale"/>
+            </case>
+            <case value="女" resultType="java.util.Map">
+                <association property="remark" column="{userId=id}" select="selectRemarkByIdFromFemale"/>
+            </case>
+        </discriminator>
+    </resultMap>
+
+</mapper>
