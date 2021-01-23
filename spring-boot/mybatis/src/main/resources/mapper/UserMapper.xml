@@ -16,11 +16,11 @@
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="sex" property="sex" jdbcType="VARCHAR"/>
-        <discriminator column="sex" javaType="com.sxh.entity.User">
-            <case value="男" resultType="java.util.Map">
+        <discriminator column="sex" javaType="java.lang.String">
+            <case value="男" resultType="com.sxh.entity.User">
                 <association property="remark" column="id" select="selectRemarkByIdFromMale"/>
             </case>
-            <case value="女" resultType="java.util.Map">
+            <case value="女" resultType="com.sxh.entity.User">
                 <association property="remark" column="{userId=id}" select="selectRemarkByIdFromFemale"/>
             </case>
         </discriminator>
