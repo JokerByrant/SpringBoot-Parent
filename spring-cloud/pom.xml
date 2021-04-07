@@ -29,8 +29,9 @@
         <module>admin-server1</module>
         <module>admin-client1</module>
         <module>admin-server-security</module>
+        <module>task</module>
     </modules>
-    
+
     <dependencies>
         <dependency>
             <groupId>com.sxh</groupId>
